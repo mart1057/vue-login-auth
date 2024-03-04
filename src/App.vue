@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav>
+    <nav v-if=" $route.meta.requiresAuth">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </nav>
