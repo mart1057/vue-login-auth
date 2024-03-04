@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Login from '../views/LoginPage.vue'
-
+import store from "../store/index";
 Vue.use(VueRouter)
 
 const routes = [
@@ -40,7 +40,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     const token = localStorage.getItem('token');
-    if (token) {
+    if (store.state.token) {
       // User is authenticated, proceed to the route
       next();
     } else {
